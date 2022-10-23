@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<a href="{%url 'tarefas.novo' %}">Novo</a>
+<table>
+    <thead>
+        <tr>
+            <th>Realizada</th>
+            <th>Descrição</th>
+            <th>Prioridade</th>
+            <th>Data</th>
+        </tr>
+        <tbody>
+            {% for tarefas in object_list %}
+            <tr>
+                <td>{{ tarefas.feita }}</td>
+                <td>{{ tarefas.descricao }}</td>
+                <td>{{ tarefas.Prioridade }}</td>
+                <td>{{ tarefas.data|date:"d/m/Y" }}</td>
+                <td></td>
+                <td>
+                    <a href={% url 'tarefas.editar' tarefas.pk %}>Editar</a>
+                    <a href={% url 'tarefas.remover' tarefas.pk %}>Remover</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </thead>
+</table>
+
+{% endblock content %}
