@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<a href={% url 'tarefa.novo' pk_lista %}>Novo item</a>
+<table>
+    <thead>
+        <tr>
+            <th>Realizada</th>
+            <th>Descrição</th>
+            <th>Prioridade</th>
+            <th>Data</th>
+        </tr>
+        <tbody>
+            {% for tarefa in tarefas %}
+            <tr>
+                <td>{{ tarefa.feita }}</td>
+                <td>{{ tarefa.descricao }}</td>
+                <td>{{ tarefa.prioridade }}</td>
+                <td>{{ tarefa.data|date:"d/m/Y" }}</td>
+                <td></td>
+                <td>
+                    <a href={% url 'tarefa.editar' pk_lista tarefa.pk %}>Editar</a>
+                    <a href={% url 'tarefa.remover' pk_lista tarefa.pk %}>Remover</a>
+                    <a href={% url 'tarefa.executar' pk_lista tarefa.pk %}>Concluída</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </thead>
+</table>
+
+{% endblock content %}
