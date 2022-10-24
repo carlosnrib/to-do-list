@@ -12,7 +12,6 @@ class Tarefas(models.Model):
         (3, 'BAIXA')
     ]
     prioridade = models.IntegerField(
-        max_length=1,
         choices=opcoes_prio,
         default=0
     )

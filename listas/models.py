@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+class Listas(models.Model):
+    nome = models.CharField(max_length=256)
+
+    def __str__(self) -> str:
+        return self.nome
+

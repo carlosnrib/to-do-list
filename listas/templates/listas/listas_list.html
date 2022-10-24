@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<a href="{%url 'listas.novo' %}">Novo</a>
+<table>
+    <thead>
+        <tr>
+            <th>Nome da lista</th>
+        </tr>
+        <tbody>
+            {% for listas in object_list %}
+            <tr>
+                <td>{{ listas.nome }}</td>
+                <td>
+                    <a href={% url 'listas.editar' listas.pk %}>Editar</a>
+                    <a href={% url 'listas.remover' listas.pk %}>Remover</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </thead>
+</table>
+
+{% endblock content %}
