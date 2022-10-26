@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap&family=Patrick+Hand&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-size: 100%;
+    background: rgb(224, 208, 193);
+}
+
+.cabecalho {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 24px;
+}
+
+.cabecalho-menu {
+    display: flex;
+    gap: 32px;
+    
+}
+
+.cabecalho-img {
+    height: 72px;
+}
+
+.cabecalho-menu-item {
+    font-family: 'Cookie', cursive;;
+    color: black;
+    font-weight: 400;
+    font-size: 38px;
+}
+
+.conteudo {
+    border-top: 0.4px solid rgb(96, 23, 0);
+}
+
+.conteudo-principal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.conteudo-principal-img {
+    margin-top: 28px;
+    height: 350px;
+}
+
+.conteudo-principal-escrito {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.conteudo-principal-escrito-titulo{
+    font-family: 'Cookie', cursive;
+    font-weight: 400;
+    font-size: 64px;
+}
+
+.conteudo-principal-escrito-subtitulo{
+    font-family: 'Patrick Hand', cursive;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.conteudo-principal-escrito-botao{
+    background-color: rgb(167, 109, 96);
+    width: 250px;
+    height: 80px;
+    border: none;
+    box-shadow: 4px 5px 4px rgb(96, 23, 0);
+    border-radius: 20px;
+    font-family: 'Cookie', cursive;
+    font-weight: 400;
+    font-size: 29px;
+}
+
+.conteudo-principal-escrito-botao:hover {
+    background-color: rgb(145, 92, 80);
+}
+
+.conteudo-principal-escrito-botao a{
+    text-decoration: none;
+    color: rgb(96, 23, 0);
+}
+
+.conteudo-secundario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.conteudo-secundario-titulo {
+    border-top: 0.4px solid rgb(96, 23, 0);
+    padding-top: 48px;
+    font-family: 'Cookie', cursive;
+    font-weight: 400;
+    font-size: 28px;
+    margin-bottom: 5px;;
+}
+
+.conteudo-paragrafo, .frase-deletar {
+    font-family: 'Patrick Hand', cursive;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.nova-lista-botao{
+    background-color: rgb(167, 109, 96);
+    width: 200px;
+    height: 40px;
+    border: none;
+    box-shadow: 4px 5px 4px rgb(96, 23, 0);
+    border-radius: 20px;
+    font-family: 'Cookie', cursive;
+    font-weight: 400;
+    font-size: 29px;
+}
+
+.nova-lista-botao:hover {
+    background-color: rgb(145, 92, 80);
+}
+
+.nova-lista-botao a{
+    text-decoration: none;
+    color: rgb(96, 23, 0);
+}
+
+.conteudo-tabela {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-top: 28px;
+}
+
+.tabela {
+    padding-top: 30px;
+    width: 75%;
+    border-collapse: collapse;
+    border-radius: 20px;
+    margin: 25px 0;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    left: 50%;
+}
+
+.tabela thead tr {
+    background-color: rgb(96, 23, 0);
+    font-size: 20px;
+    font-family: 'Patrick Hand', cursive;
+    color: #ffffff;
+    text-align: left;
+}
+
+.tabela th,
+.tabela td {
+    padding: 12px 15px;
+}
+
+.tabela tbody tr {
+    border-bottom: 1px solid #dddddd;
+    font-size: 29px;
+    font-family: 'Cookie', cursive;
+}
+
+.tabela tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.tabela tbody tr:last-of-type {
+    border-bottom: 2px solid rgb(96, 23, 0);
+}
+
+.acoes-botao{
+    background-color: rgb(167, 109, 96);
+    width: 95px;
+    height: 40px;
+    border: none;
+    box-shadow: 4px 5px 4px rgb(96, 23, 0);
+    border-radius: 20px;
+    font-family: 'Cookie', cursive;
+    font-weight: 400;
+    font-size: 29px;
+}
+
+.acoes-botao:hover {
+    background-color: rgb(145, 92, 80);
+}
+
+.acoes-botao a{
+    text-decoration: none;
+    color: rgb(96, 23, 0);
+}
+
+.forms-listas {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin: 28px;
+}
+
+label {
+    font-family: 'Cookie', cursive;
+    font-weight: 400;
+    font-size: 29px;
+}
+
+input[type="text"]{
+    padding: 0.2em;
+    border-color: rgb(167, 109, 96);
+    box-shadow: 2px 2px 2px rgb(96, 23, 0);
+    border-radius: 5px;
+    width: 300px;
+    height: 30px;
+}
+
+select{
+    padding: 0.2em;
+    border-color: rgb(167, 109, 96);
+    box-shadow: 2px 2px 2px rgb(96, 23, 0);
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+}
+
+input[type="date"]{
+    padding: 0.2em;
+    border-color: rgb(167, 109, 96);
+    box-shadow: 2px 2px 2px rgb(96, 23, 0);
+    border-radius: 5px;
+}
+
+input[type="checkbox"]{
+    padding: 0.2em;
+    border-color: rgb(167, 109, 96);
+    box-shadow: 2px 2px 2px rgb(96, 23, 0);
+    border-radius: 5px;
+    size: 5px;
+}
+
+input:focus{
+    background-color: #f3f3f3;
+}
+
+fieldset {
+    border: 0;
+}
+
+.botao {
+    margin-top: 28px;
+    margin-left: 28px;
+}
+
+.botao-enviar {
+    background-color: rgb(167, 109, 96);
+    width: 95px;
+    height: 40px;
+    border: none;
+    top: 10%;
+    box-shadow: 4px 5px 4px rgb(96, 23, 0);
+    border-radius: 20px;
+    font-family: 'Cookie', cursive;
+    font-weight: 400;
+    font-size: 29px;
+}
+
+.botao-enviar:hover {
+    background-color: rgb(145, 92, 80);
+}

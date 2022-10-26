@@ -1,1 +1,42 @@
-{% extends 'main/base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    <header class="cabecalho">
+        <img class="cabecalho-img" src="{% static 'img/logo.svg' %}" alt ="Logo">
+        <nav class="cabecalho-menu">
+            <a class="cabecalho-menu-item" href="{%url 'home'%}">Home</a>
+            <a class="cabecalho-menu-item" href="{% url 'listas.index' %}">Listas</a>
+        <nav>
+    </header>
+    <main class="conteudo">
+        <section class="conteudo-principal">
+            <div class="conteudo-principal-escrito">
+                <h1 class="conteudo-principal-escrito-titulo">To Do List</h1>
+                <h2 class="conteudo-principal-escrito-subtitulo">Organize a sua rotina de forma fácil e rápida</h2>
+                <button class="conteudo-principal-escrito-botao">
+                    <a href="{% url 'listas.index' %}">Começar a me organizar</a>
+                </button>
+            </div>
+            <img class="conteudo-principal-img" src="{% static 'img/logo.svg' %}" alt ="Logo">
+        </section>
+
+        <section class="conteudo-secundario">
+            <h3 class="conteudo-secundario-titulo">Como funciona?</h3>
+            <p class="conteudo-paragrafo">Passo 1: Crie uma To Do List, escolha o nome que você desejar</p>
+            <p class="conteudo-paragrafo">Passo 2: Adicione novas tarefas para essa lista</p>
+            <p class="conteudo-paragrafo">Passo 3: Atribua descrição, prioridade e data para suas tarefas</p>
+            <p class="conteudo-paragrafo">Tenha uma rotina mais organizada</p>
+        </section>
+
+    </main>
+</body>
+</html>

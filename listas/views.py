@@ -57,7 +57,11 @@ def tarefa_remover(request, pk_lista, pk):
 
 def tarefa_executar(request, pk_lista, pk):
     tarefa = get_object_or_404(Tarefa, pk=pk)
-    tarefa.feita = True
-    tarefa.save()
+    if tarefa.feita == True:
+        tarefa.feita = False
+        tarefa.save()
+    else:
+        tarefa.feita = True
+        tarefa.save()
     return redirect(reverse('listas.tarefas', args=[pk_lista]))
 

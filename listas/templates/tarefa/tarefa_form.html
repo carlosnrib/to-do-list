@@ -1,8 +1,33 @@
-{% extends 'main/base.html' %}
-{% block content %}
-<form method='post'>
-    {% csrf_token %}
-    {{ form.as_p}}
-    <input type="submit", value="Salvar"></input>
-</form>
-{% endblock content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    <header class="cabecalho">
+        <img class="cabecalho-img" src="{% static 'img/logo.svg' %}" alt ="Logo">
+        <nav class="cabecalho-menu">
+            <a class="cabecalho-menu-item" href="{%url 'home'%}">Home</a>
+            <a class="cabecalho-menu-item" href="{% url 'listas.index' %}">Listas</a>
+        <nav>
+    </header>
+    <main class="conteudo">
+        <section class="forms-listas">
+            <h1 class="conteudo-principal-escrito-titulo">Novo Item</h1>
+            <form method='post'>
+                {% csrf_token %}
+                {{ form.as_p}}
+                <div class="botao">
+                    <input class="botao-enviar" type="submit", value="Salvar"></input>
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

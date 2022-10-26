@@ -1,8 +1,9 @@
+from email.policy import default
+from random import choices
 from django.db import models
 
 class Listas(models.Model):
     nome = models.CharField(max_length=256)
-
     def __str__(self) -> str:
         return self.nome
 
@@ -20,7 +21,7 @@ class Tarefa(models.Model):
         default=0
     )
 
-    data = models.DateField(null=True)
+    data = models.DateField(null=True, blank=True)
     feita = models.BooleanField(default=False)
     lista = models.ForeignKey(Listas, on_delete=models.CASCADE)
 

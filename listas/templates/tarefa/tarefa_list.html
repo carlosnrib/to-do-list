@@ -1,31 +1,77 @@
-{% extends 'main/base.html' %}
-{% block content %}
-<a href={% url 'tarefa.novo' pk_lista %}>Novo item</a>
-<table>
-    <thead>
-        <tr>
-            <th>Realizada</th>
-            <th>Descrição</th>
-            <th>Prioridade</th>
-            <th>Data</th>
-        </tr>
-        <tbody>
-            {% for tarefa in tarefas %}
-            <tr>
-                <td>{{ tarefa.feita }}</td>
-                <td>{{ tarefa.descricao }}</td>
-                <td>{{ tarefa.prioridade }}</td>
-                <td>{{ tarefa.data|date:"d/m/Y" }}</td>
-                <td></td>
-                <td>
-                    <a href={% url 'tarefa.editar' pk_lista tarefa.pk %}>Editar</a>
-                    <a href={% url 'tarefa.remover' pk_lista tarefa.pk %}>Remover</a>
-                    <a href={% url 'tarefa.executar' pk_lista tarefa.pk %}>Concluída</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </thead>
-</table>
+{% load static %}
 
-{% endblock content %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    <header class="cabecalho">
+        <img class="cabecalho-img" src="{% static 'img/logo.svg' %}" alt ="Logo">
+        <nav class="cabecalho-menu">
+            <a class="cabecalho-menu-item" href="{%url 'home'%}">Home</a>
+            <a class="cabecalho-menu-item" href="{% url 'listas.index' %}">Listas</a>
+        <nav>
+    </header>
+    <main class="conteudo">
+        <section class="conteudo-principal">
+            <h1 class="conteudo-principal-escrito-titulo">To Do List's Itens </h1>
+            <button class="nova-lista-botao">
+                <a href={% url 'tarefa.novo' pk_lista %}>Novo item</a>
+            </button>
+        </section>
+        <section class="conteudo-tabela">
+            <table class="tabela">
+                <thead>
+                    <tr>
+                        <th>Realizada</th>
+                        <th>Descrição</th>
+                        <th>Prioridade</th>
+                        <th>Data</th>
+                        <th>Ações</th>
+                    </tr>
+                    <tbody>
+                        {% for tarefa in tarefas %}
+                        <tr>
+                            <td>{% if tarefa.feita %}
+                                <img class="checkbox" src="{% static 'img/check.svg' %}">
+                                {% else %}
+                                <img class="checkbox" src="{% static 'img/retangulo.svg' %}">
+                                {% endif %}
+                            </td>
+                            <td>{{ tarefa.descricao }}</td>
+                            <td>{% if tarefa.prioridade == 0 %}
+                                -
+                                {% elif tarefa.prioridade == 3 %}
+                                <img class="estrela" src="{% static 'img/estrela1.svg' %}">
+                                {% elif tarefa.prioridade == 2 %}
+                                <img class="estrela" src="{% static 'img/estrela2.svg' %}">
+                                {% elif tarefa.prioridade == 1 %}
+                                <img class="estrela" src="{% static 'img/estrela3.svg' %}">
+                                {% endif %}
+                            </td>
+                            <td>{{ tarefa.data|date:"d/m/Y" }}</td>
+                            <td>
+                                <button class="acoes-botao">
+                                    <a href={% url 'tarefa.executar' pk_lista tarefa.pk %}>Concluir</a>
+                                </button>
+                                <button class="acoes-botao">
+                                    <a href={% url 'tarefa.editar' pk_lista tarefa.pk %}>Editar</a>
+                                </button>
+                                <button class="acoes-botao">
+                                    <a href={% url 'tarefa.remover' pk_lista tarefa.pk %}>Remover</a>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </thead>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
