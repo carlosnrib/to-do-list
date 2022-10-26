@@ -33,9 +33,9 @@ class ListasDeleteView(DeleteView):
 
 # Criacao das funcoes das tarefas
 
-# Funcao de exibicao das tarefas de uma lista
+# Funcao de exibicao das tarefas de uma lista, em ordem descresente de prioridade e em ordem alfabetica dentro das propriedades
 def tarefas(request, pk_lista):
-    tarefas = Tarefa.objects.filter(lista=pk_lista)
+    tarefas = Tarefa.objects.filter(lista=pk_lista).order_by('-prioridade', 'descricao')
     return render(request, 'tarefa/tarefa_list.html', {'tarefas':tarefas, 'pk_lista':pk_lista})
 
 # Funcao de criacao de uma nova tarefa

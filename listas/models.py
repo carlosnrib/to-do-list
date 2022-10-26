@@ -22,9 +22,9 @@ class Tarefa(models.Model):
     # Opcoes que o atributo "prioridade" pode ter
     opcoes_prio = [
         (0, 'NENHUMA'),
-        (1, 'ALTA'),
+        (1, 'BAIXA'),
         (2, 'MÉDIA'),
-        (3, 'BAIXA')
+        (3, 'ALTA')
     ]
     prioridade = models.IntegerField(
         choices=opcoes_prio,

@@ -46,11 +46,11 @@
                             <td>{{ tarefa.descricao }}</td>
                             <td>{% if tarefa.prioridade == 0 %}
                                 -
-                                {% elif tarefa.prioridade == 3 %}
+                                {% elif tarefa.prioridade == 1 %}
                                 <img class="estrela" src="{% static 'img/estrela1.svg' %}">
                                 {% elif tarefa.prioridade == 2 %}
                                 <img class="estrela" src="{% static 'img/estrela2.svg' %}">
-                                {% elif tarefa.prioridade == 1 %}
+                                {% elif tarefa.prioridade == 3 %}
                                 <img class="estrela" src="{% static 'img/estrela3.svg' %}">
                                 {% endif %}
                             </td>
