@@ -15,7 +15,7 @@
         <nav class="cabecalho-menu">
             <a class="cabecalho-menu-item" href="{%url 'home'%}">Home</a>
             <a class="cabecalho-menu-item" href="{% url 'listas.index' %}">Listas</a>
-        <nav>
+        </nav>
     </header>
     <main class="conteudo">
         <section class="conteudo-principal">
@@ -24,34 +24,34 @@
                 <a href="{%url 'listas.novo' %}">Criar nova lista</a>
             </button>
         </section>
-    <section class="conteudo-tabela">
-        <table class="tabela">
-            <thead>
-                <tr>
-                    <th>Nome da lista</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-                <tbody>
-                    {% for listas in object_list %}
+        <section class="conteudo-tabela">
+            <table class="tabela">
+                <thead>
                     <tr>
-                        <td>{{ listas.nome }}</td>
-                        <td>
-                            <button class="acoes-botao">
-                                <a href={% url 'listas.tarefas' listas.pk %}>Acessar</a>
-                            </button>
-                            <button class="acoes-botao">
-                                <a href={% url 'listas.editar' listas.pk %}>Editar</a>
-                            </button>
-                            <button class="acoes-botao">
-                                <a href={% url 'listas.remover' listas.pk %}>Remover</a>
-                            </button>
-                        </td>
+                        <th>Nome da lista</th>
+                        <th>Ações</th>
                     </tr>
-                    {% endfor %}
-                </tbody> 
-        </table>
-    </section>
+                </thead>
+                    <tbody>
+                        {% for listas in object_list %}
+                        <tr>
+                            <td>{{ listas.nome }}</td>
+                            <td>
+                                <button class="acoes-botao">
+                                    <a href={% url 'listas.tarefas' listas.pk %}>Acessar</a>
+                                </button>
+                                <button class="acoes-botao">
+                                    <a href={% url 'listas.editar' listas.pk %}>Editar</a>
+                                </button>
+                                <button class="acoes-botao">
+                                    <a href={% url 'listas.remover' listas.pk %}>Remover</a>
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody> 
+            </table>
+        </section>
     </main>
 </body>
 </html>

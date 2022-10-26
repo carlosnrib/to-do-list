@@ -7,28 +7,38 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from .models import Listas, Tarefa
 from .forms import ListasForms, TarefaForms
 
+# Criacao das views
+
+# View de exibicao das listas, em ordem alfabetica
 class ListasView(ListView):
     model = Listas
     queryset= Listas.objects.all().order_by('nome')
 
+# View de criacao de novas listas
 class ListasCreateView(CreateView):
     model = Listas
     form_class= ListasForms
     success_url= '/listas/'
 
+# View de atualizacao das listas
 class ListasUpdateView(UpdateView):
     model = Listas
     form_class= ListasForms
     success_url= '/listas/'
 
+# View de remocao das listas
 class ListasDeleteView(DeleteView):
     model = Listas
     success_url= '/listas/'
 
+# Criacao das funcoes das tarefas
+
+# Funcao de exibicao das tarefas de uma lista
 def tarefas(request, pk_lista):
     tarefas = Tarefa.objects.filter(lista=pk_lista)
     return render(request, 'tarefa/tarefa_list.html', {'tarefas':tarefas, 'pk_lista':pk_lista})
 
+# Funcao de criacao de uma nova tarefa
 def tarefa_novo(request, pk_lista):
     form = TarefaForms()
     if request.method == "POST":
@@ -40,6 +50,7 @@ def tarefa_novo(request, pk_lista):
             return redirect(reverse('listas.tarefas', args=[pk_lista]))
     return render(request, 'tarefa/tarefa_form.html', {'form': form})
 
+# Funcao de edicao de uma tarefa
 def tarefa_editar(request, pk_lista, pk):
     tarefa = get_object_or_404(Tarefa, pk=pk)
     form = TarefaForms(instance=tarefa)
@@ -50,11 +61,13 @@ def tarefa_editar(request, pk_lista, pk):
             return redirect(reverse('listas.tarefas', args=[pk_lista]))
     return render(request, 'tarefa/tarefa_form.html', {'form': form})
 
+# Funcao de remocao de uma tarefa
 def tarefa_remover(request, pk_lista, pk):
     tarefa = get_object_or_404(Tarefa, pk=pk)
     tarefa.delete()
     return redirect(reverse('listas.tarefas', args=[pk_lista]))
 
+# Funcao para "executar" uma tarefa, transforma o status do atributo "feita"
 def tarefa_executar(request, pk_lista, pk):
     tarefa = get_object_or_404(Tarefa, pk=pk)
     if tarefa.feita == True:

@@ -2,7 +2,8 @@ from django.urls import path
 from .views import ListasCreateView, ListasDeleteView, ListasUpdateView, ListasView
 from . import views
 
-
+# Urls utilizadas nas paginas das listas e das tarefas
+# Aqui estao as urls de exibicao, criacao, edicao e remocao de listas e tarefas
 urlpatterns = [
     path('', ListasView.as_view(), name='listas.index'),
     path('novo/', ListasCreateView.as_view(), name='listas.novo'),
