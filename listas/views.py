@@ -31,7 +31,7 @@ class ListasDeleteView(DeleteView):
     model = Listas
     success_url= '/listas/'
 
-# Criacao das funcoes das tarefas
+# Criacao dos metodos das tarefas
 
 # Funcao de exibicao das tarefas de uma lista, em ordem descresente de prioridade e em ordem alfabetica dentro das propriedades
 def tarefas(request, pk_lista):
