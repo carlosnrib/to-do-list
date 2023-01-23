@@ -1,7 +1,7 @@
 # Projeto To Do List
 
 Este é um projeto de uma aplicação Full-Stack de um To Do List. 
-Com este prohgram é possível criar diversas listas e criar itens ou tarefas dentro delas.
+Com este programa é possível criar diversas listas e criar itens ou tarefas dentro delas.
 O objetivo deste projeto é permitir que o usuário organize as suas atividades e seus afazeres de forma de ágil e fácil. 
 
 ## :hammer_and_pick: Construído com
